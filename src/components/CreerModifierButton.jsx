@@ -1,6 +1,6 @@
 import { useAppContext } from "../contexts/context"
 import { creerFormulaire } from "../contexts/dispatcher"
-import { formulaire } from "../components/PropTypeValidation"
+import { formulaire } from "./PropTypeValidation"
 
 CreerModifierButton.propTypes = {
   formulaire

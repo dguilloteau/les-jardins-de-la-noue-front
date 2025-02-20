@@ -4,7 +4,7 @@ import { updateFormItemOfSelectedTypeFormulaire, addFormulaireToList } from "../
 import { getFormItem } from "../Utils"
 import { v4 as uuid } from "uuid";
 import { getTypeFormulaire } from "../services/TypesFormulairesService"
-import { formItem } from "../components/PropTypeValidation";
+import { formItem } from "./PropTypeValidation";
 import PropTypes from 'prop-types';
 
 Input.propTypes = {

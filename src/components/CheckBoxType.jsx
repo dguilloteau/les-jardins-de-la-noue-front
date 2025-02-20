@@ -2,14 +2,14 @@ import { useAppContext } from "../contexts/context"
 import { updateFormItemOfSelectedTypeFormulaire } from "../contexts/dispatcher"
 import { Link } from "react-router";
 import PropTypes from 'prop-types';
-import { formItem } from "../components/PropTypeValidation";
+import { formItem } from "./PropTypeValidation";
 
 Item.propTypes = {
   idTypeForm: PropTypes.string,
   formItem
 };
 
-function triListe(a, b) {
+function triListeOrderById(a, b) {
   return a.id - b.id;
 }
 
@@ -34,7 +34,7 @@ function CheckBoxTypes() {
   const { state } = useAppContext();
   return (
     <form className="checkbox my-3">
-      {state.selectedTypeFormulaire.formItems.sort(triListe).map((formItem) =>
+      {state.selectedTypeFormulaire.formItems.sort(triListeOrderById).map((formItem) =>
         <Item key={formItem.id} formItem={formItem} />
       )}
     </form>

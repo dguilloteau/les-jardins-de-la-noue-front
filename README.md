@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# jardin
+
+Application front pour les-jardins-de-la-noue
+
+Ce projet créé et envoi des google forms dans le google drive.
+
+TODOS : Envoyer les formulaires à une liste de clients pour en récupérer leurs réponses (commandes).
+        Imprimer les comandes des clients
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +77,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+// TODO
+// Faire des tests -->

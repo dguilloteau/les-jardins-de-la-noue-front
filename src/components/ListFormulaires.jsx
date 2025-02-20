@@ -7,7 +7,7 @@ Item.propTypes = {
   formulaire
 };
 
-function triListe(a, b) {
+function triListeRecentVersAncien(a, b) {
   return new Date(a.dateDerniereModif).getTime() - new Date(b.dateDerniereModif).getTime();
 }
 
@@ -24,7 +24,7 @@ function ListFormulaires() {
   const { state } = useAppContext();
   return (
     <ul className="list-group">
-      {state.lignesAffichees && state.lignesAffichees.length > 0 && state.lignesAffichees.sort(triListe).reverse().map((formulaire) => (
+      {state.lignesAffichees && state.lignesAffichees.length > 0 && state.lignesAffichees.sort(triListeRecentVersAncien).reverse().map((formulaire) => (
         <Item key={formulaire.formId} formulaire={formulaire} />
       ))}
     </ul>

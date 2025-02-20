@@ -131,6 +131,7 @@ export const withContext = (Component) => (props) => {
   return <Consumer>{(value) => <Component {...value} {...props} />}</Consumer>;
 };
 
+// Custom hook
 export const useAppContext = () => {
   return useContext(PageContext);
 };
