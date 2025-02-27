@@ -4,9 +4,9 @@ import { postFormulaire } from "../services/FormulairesService";
 import { patchTypeFormulaire } from "../services/TypesFormulairesService";
 
 
-export function updateFormItemOfSelectedTypeFormulaire(dispatch: React.Dispatch<FormActions>, formItem: FormItem) {
-    dispatch({ type: ActionTypes.UPDATE_FORM_ITEM_OF_SELECTED_TYPE_FORMULAIRE, payload: formItem })
-    return patchTypeFormulaire(formItem);
+export function updateFormItemOfSelectedTypeFormulaire<T>(dispatch: React.Dispatch<FormActions>, formItem: T) {
+    dispatch({ type: ActionTypes.UPDATE_FORM_ITEM_OF_SELECTED_TYPE_FORMULAIRE, payload: formItem as FormItem })
+    return patchTypeFormulaire(formItem as FormItem);
 }
 
 export function updateSelectedTypeFormulaire(dispatch: React.Dispatch<FormActions>, selectedTypeFormulaire: TypeFormulaire) {

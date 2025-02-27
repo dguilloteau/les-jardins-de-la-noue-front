@@ -8,7 +8,7 @@ import { getFormItemOfTypeFormulaire, triAscById } from "../../../utils/Utils";
 
 function ILibelleChoix({ name }: Readonly<ItemProps>) {
   const { state, dispatch } = useAppContext();
-  const formItem = getFormItemOfTypeFormulaire(state.selectedTypeFormulaire, name) as FormItemList;
+  const formItem = getFormItemOfTypeFormulaire<FormItemList>(state.selectedTypeFormulaire, name);
 
   const handleOnChangeLibelle = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();

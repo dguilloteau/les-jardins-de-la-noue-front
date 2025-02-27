@@ -8,7 +8,7 @@ import { getFormItemOfTypeFormulaire } from "../../../utils/Utils";
 
 function IChecked({ name }: Readonly<ItemProps>) {
   const { state, dispatch } = useAppContext();
-  const formItem = getFormItemOfTypeFormulaire(state.selectedTypeFormulaire, name) as FormItem;
+  const formItem = getFormItemOfTypeFormulaire<FormItem>(state.selectedTypeFormulaire, name);
 
   const toggleCheck = (e: ChangeEvent<HTMLInputElement>) => {
     formItem.checked = e.target.checked;

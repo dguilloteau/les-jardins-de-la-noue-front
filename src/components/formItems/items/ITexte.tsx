@@ -1,14 +1,14 @@
 import { ChangeEvent } from "react";
 import { updateFormItemOfSelectedTypeFormulaire } from "../../../context/dispatcher";
 import { useAppContext } from "../../../context/useAppContext";
+import { FormItemText } from "../../../models/DtoStructures";
 import { ItemProps } from "../../../models/FunctionsProps";
 import { getFormItemOfTypeFormulaire } from "../../../utils/Utils";
-import { FormItemText } from "../../../models/DtoStructures";
 
 
 function ITexte({ name }: Readonly<ItemProps>) {
   const { state, dispatch } = useAppContext();
-  const formItem = getFormItemOfTypeFormulaire(state.selectedTypeFormulaire, name) as FormItemText;
+  const formItem = getFormItemOfTypeFormulaire<FormItemText>(state.selectedTypeFormulaire, name);
 
   const handleOnChangeTexte = (e: ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
@@ -19,9 +19,9 @@ function ITexte({ name }: Readonly<ItemProps>) {
   return (
     <div>
       {formItem.texte != null &&
-        <form className="titre my-3">
+        <form className="titre my-2">
           <textarea
-            className={formItem.titre == null ? "my-3 form-control" : "form-control"}
+            className={formItem.titre == null ? "my-2 form-control" : "form-control"}
             id="saisieTexteItem"
             value={formItem.texte}
             onChange={handleOnChangeTexte}

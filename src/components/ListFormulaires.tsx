@@ -1,7 +1,7 @@
 import { useAppContext } from "../context/useAppContext";
 import { FormItemText, Formulaire } from "../models/DtoStructures";
 import { getFormItemOfFormulaire, triListeRecentVersAncien } from "../utils/Utils";
-import CreerModifierButton from "./CreerModifierButton";
+import CreerModifierButton from "./buttons/CreerModifierButton";
 
 
 type Props = {
@@ -12,7 +12,7 @@ function Item({ formulaire }: Readonly<Props>) {
   return (
     <li className="list-group-item">
       {!formulaire.done && <CreerModifierButton formulaire={formulaire} />}
-      <span className="mx-3" >{(getFormItemOfFormulaire(formulaire, "ENTETE") as FormItemText).titre}</span>
+      <span className="mx-3" >{(getFormItemOfFormulaire<FormItemText>(formulaire, "ENTETE")).titre}</span>
     </li>
   );
 }

@@ -1,3 +1,5 @@
+import AjouterFormulaire from "../buttons/AjouterFormulaire";
+import Card from "../Card";
 import CheckBoxType from "../CheckBoxType";
 import Container from '../Container';
 import ListFormulaires from "../ListFormulaires";
@@ -9,9 +11,12 @@ import SelectionType from "../SelectionType";
 function Gestion() {
   return (
     <Container title="Gestionnaire de formulaires">
-      <SelectionType />
-      <CheckBoxType />
-      <SaisieTitre />
+      <Card>
+        <SelectionType />
+        <CheckBoxType />
+        <SaisieTitre />
+        <AjouterFormulaire />
+      </Card>
       <ListSelect />
       <ListFormulaires />
     </Container>

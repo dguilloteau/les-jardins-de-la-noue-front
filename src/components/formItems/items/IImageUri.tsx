@@ -6,7 +6,7 @@ import { getFormItemOfTypeFormulaire } from "../../../utils/Utils";
 
 function IImageUri({ name }: Readonly<ItemProps>) {
   const { state } = useAppContext();
-  const formItem = getFormItemOfTypeFormulaire(state.selectedTypeFormulaire, name) as FormItemImage;
+  const formItem = getFormItemOfTypeFormulaire<FormItemImage>(state.selectedTypeFormulaire, name);
 
   return (
     <div>

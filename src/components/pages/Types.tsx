@@ -8,6 +8,7 @@ import FImage from "../formItems/fimage/FImage";
 import FList from "../formItems/flist/FList";
 import FQuestion from "../formItems/fquestion/FQuestion";
 import FText from "../formItems/ftext/FText";
+import { FormItem } from "../../models/DtoStructures";
 
 
 function ViewType({ name }: Readonly<ItemProps>) {
@@ -35,7 +36,7 @@ function Types() {
   const location = useLocation();
   const name = location.state;
 
-  const formItem = getFormItemOfTypeFormulaire(state.selectedTypeFormulaire, name);
+  const formItem = getFormItemOfTypeFormulaire<FormItem>(state.selectedTypeFormulaire, name);
 
   return (
     <div>

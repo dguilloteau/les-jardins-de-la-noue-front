@@ -1,14 +1,15 @@
 import { ChangeEvent } from "react";
 import { updateFormItemOfSelectedTypeFormulaire } from "../../../context/dispatcher";
 import { useAppContext } from "../../../context/useAppContext";
-import { FormItemText } from "../../../models/DtoStructures";
-import { ItemProps } from "../../../models/FunctionsProps";
 import { getFormItemOfTypeFormulaire } from "../../../utils/Utils";
 
+type Props = {
+  name: string;
+}
 
-function ITitre({ name }: Readonly<ItemProps>) {
+function ITitre<T extends { titre?: string }>({ name }: Readonly<Props>) {
   const { state, dispatch } = useAppContext();
-  const formItem = getFormItemOfTypeFormulaire(state.selectedTypeFormulaire, name) as FormItemText;
+  const formItem = getFormItemOfTypeFormulaire<T>(state.selectedTypeFormulaire, name);
 
   const handleOnChangeTitre = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -19,10 +20,10 @@ function ITitre({ name }: Readonly<ItemProps>) {
   return (
     <div>
       {formItem.titre != null &&
-        <form className="titre my-3">
+        <form className="titre my-2 mx-2">
           <label htmlFor="saisieTitreItem">Titre :</label>
           <input
-            className="my-3 form-control"
+            className="form-control"
             id="saisieTitreItem"
             type="text"
             value={formItem.titre}

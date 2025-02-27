@@ -40,7 +40,7 @@ export interface TypeFormulaire {
 }
 
 export interface Formulaire {
-    id: number;
+    id?: number;
     formId: string;
     typeFormulaire: TypeFormulaire;
     dateDerniereModif: string;

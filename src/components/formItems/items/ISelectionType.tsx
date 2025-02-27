@@ -8,7 +8,7 @@ import { getFormItemOfTypeFormulaire } from "../../../utils/Utils";
 
 function ISelectionType({ name }: Readonly<ItemProps>) {
   const { state, dispatch } = useAppContext();
-  const formItem = getFormItemOfTypeFormulaire(state.selectedTypeFormulaire, name) as FormItemList;
+  const formItem = getFormItemOfTypeFormulaire<FormItemList>(state.selectedTypeFormulaire, name);
 
   const handleOnSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();

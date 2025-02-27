@@ -1,35 +1,17 @@
 import { AxiosError } from "axios";
-import { FormItem, FormItemImage, FormItemList, FormItemQuestion, FormItemText, Formulaire, TypeFormulaire } from "../models/DtoStructures";
-import { FormItemReturn } from "../models/FunctionsReturn";
+import { FormItem, Formulaire, TypeFormulaire } from "../models/DtoStructures";
 
 
-function getFormItem(formItems: FormItem[], name: string): FormItemReturn {
-  const formItem = formItems.filter((item) => item.name === name)[0];
-  switch (formItem.name) {
-    case "ENTETE":
-    case "COMPOSITION":
-      return formItem as FormItemText;
-    case "IMAGE_BANDEAU":
-    case "LOCALISATION":
-      return formItem as FormItemImage;
-    case "E_MAIL":
-    case "NOM_PRENOM":
-      return formItem as FormItemQuestion;
-    case "PANIER":
-    case "CAGETTE":
-    case "FORMULE":
-      return formItem as FormItemList;
-    default:
-      return null;
-  }
+function getFormItem<T>(formItems: FormItem[], name: string): T {
+  return formItems.filter((item) => item.name === name)[0] as T;
 }
 
-export function getFormItemOfTypeFormulaire(typeFormulaire: TypeFormulaire, name: string): FormItemReturn {
-  return getFormItem(typeFormulaire.formItems, name);
+export function getFormItemOfTypeFormulaire<T>(typeFormulaire: TypeFormulaire, name: string): T {
+  return getFormItem<T>(typeFormulaire.formItems, name);
 }
 
-export function getFormItemOfFormulaire(formulaire: Formulaire, name: string): FormItemReturn {
-  return getFormItem(formulaire.typeFormulaire.formItems, name);
+export function getFormItemOfFormulaire<T>(formulaire: Formulaire, name: string): T {
+  return getFormItem<T>(formulaire.typeFormulaire.formItems, name);
 }
 
 export function afficheAlerte(message: string, error: AxiosError) {

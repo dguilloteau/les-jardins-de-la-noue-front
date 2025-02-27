@@ -1,7 +1,7 @@
 
-import { creerFormulaire } from "../context/dispatcher";
-import { useAppContext } from "../context/useAppContext";
-import { Formulaire } from "../models/DtoStructures";
+import { creerFormulaire } from "../../context/dispatcher";
+import { useAppContext } from "../../context/useAppContext";
+import { Formulaire } from "../../models/DtoStructures";
 
 type Props = {
   formulaire: Formulaire;

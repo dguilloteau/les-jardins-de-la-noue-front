@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ErrorBoundary from "./components/ErrorBoundary";
+import ErrorBoundary from "./components/errors/ErrorBoundary";
 import Gestion from "./components/pages/Gestion";
 import Types from "./components/pages/Types";
 
