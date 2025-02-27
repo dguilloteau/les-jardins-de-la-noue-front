@@ -14,7 +14,7 @@ function SelectionType() {
   };
 
   return (
-    <div className="type my-2 mx-2">
+    <div className="type my-2">
       <label htmlFor="typesFormulaires">Type :</label>
       <select
         className="form-select"

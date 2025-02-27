@@ -1,5 +1,6 @@
 import { useLocation } from "react-router";
 import { useAppContext } from "../../context/useAppContext";
+import { FormItem } from "../../models/DtoStructures";
 import { ItemProps } from "../../models/FunctionsProps";
 import { getFormItemOfTypeFormulaire } from "../../utils/Utils";
 import QuitToRootPath from "../buttons/QuitToRootPass";
@@ -8,7 +9,6 @@ import FImage from "../formItems/fimage/FImage";
 import FList from "../formItems/flist/FList";
 import FQuestion from "../formItems/fquestion/FQuestion";
 import FText from "../formItems/ftext/FText";
-import { FormItem } from "../../models/DtoStructures";
 
 
 function ViewType({ name }: Readonly<ItemProps>) {
@@ -39,13 +39,10 @@ function Types() {
   const formItem = getFormItemOfTypeFormulaire<FormItem>(state.selectedTypeFormulaire, name);
 
   return (
-    <div>
-      {formItem != null &&
-        <Container title={`Modification de ${formItem.libelle}`}>
-          <ViewType name={formItem.name} />
-          <QuitToRootPath />
-        </Container>
-      }</div>
+    <Container title={`Modification de ${formItem.libelle}`}>
+      <ViewType name={formItem.name} />
+      <QuitToRootPath />
+    </Container>
   )
 }
 

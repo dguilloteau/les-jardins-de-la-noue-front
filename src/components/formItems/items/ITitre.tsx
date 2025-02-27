@@ -20,7 +20,7 @@ function ITitre<T extends { titre?: string }>({ name }: Readonly<Props>) {
   return (
     <div>
       {formItem.titre != null &&
-        <form className="titre my-2 mx-2">
+        <form className="titre my-2">
           <label htmlFor="saisieTitreItem">Titre :</label>
           <input
             className="form-control"

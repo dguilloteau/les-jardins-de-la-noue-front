@@ -18,7 +18,7 @@ function ISelectionType({ name }: Readonly<ItemProps>) {
 
   return (
     <div>
-      <form className="type my-3">
+      <form className="type my-2">
         <label htmlFor="typeChoix">Type :</label>
         <select
           className="form-select"

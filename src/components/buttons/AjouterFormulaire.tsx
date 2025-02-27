@@ -20,7 +20,7 @@ function AjouterFormulaire() {
   }
 
   return (
-    <button type="button" className="btn btn-info my-2 mx-2" onClick={handleOnClick}>Ajouter</button>
+    <button type="button" className="btn btn-info my-2" onClick={handleOnClick}>Ajouter</button>
   )
 }
 

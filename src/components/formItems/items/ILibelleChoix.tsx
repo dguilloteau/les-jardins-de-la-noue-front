@@ -26,7 +26,7 @@ function ILibelleChoix({ name }: Readonly<ItemProps>) {
   return (
     <div>
       {formItem.listeChoix.toSorted(triAscById).map((choix) => (
-        <form className="titre my-3" key={choix.id}>
+        <form className="titre my-2" key={choix.id}>
           <input
             className="form-control"
             id={choix.id.toString()}

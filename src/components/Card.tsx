@@ -6,7 +6,7 @@ type Props = {
 
 const Card = ({ children }: Props) => {
     return (
-        <div className="card" id="list1" style={{ borderRadius: ".15rem" }}>
+        <div className="container card" id="list1" style={{ borderRadius: ".15rem" }}>
             {children}
         </div>
     )

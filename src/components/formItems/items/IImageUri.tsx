@@ -11,7 +11,7 @@ function IImageUri({ name }: Readonly<ItemProps>) {
   return (
     <div>
       {/* // TODO faire modification de l'image */}
-      <img className="my-3 form-control" src={formItem.imageUri} alt="new" />
+      <img className="form-control my-2" src={formItem.imageUri} alt="new" />
     </div>
   )
 }
