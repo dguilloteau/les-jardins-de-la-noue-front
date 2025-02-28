@@ -7,7 +7,7 @@ type Props = {
   formulaire: Formulaire;
 };
 
-function CreerModifierButton({ formulaire }: Readonly<Props>) {
+const CreerModifierButton = ({ formulaire }: Readonly<Props>) => {
   const { dispatch } = useAppContext();
   let libelle;
   let handleOnClick;
@@ -25,10 +25,10 @@ function CreerModifierButton({ formulaire }: Readonly<Props>) {
   }
 
   return (
-    <button className="btn btn-info" onClick={handleOnClick}>
+    <button className="btn btn-info" onClick={handleOnClick} type="button">
       {libelle}
     </button>
-  )
-}
+  );
+};
 
 export default CreerModifierButton;

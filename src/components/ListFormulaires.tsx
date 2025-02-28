@@ -8,24 +8,24 @@ type Props = {
   formulaire: Formulaire;
 };
 
-function Item({ formulaire }: Readonly<Props>) {
+const Item = ({ formulaire }: Readonly<Props>) => {
   return (
     <li className="list-group-item">
-      {!formulaire.done && <CreerModifierButton formulaire={formulaire} />}
+      {!formulaire.done ? <CreerModifierButton formulaire={formulaire} /> : null}
       <span className="mx-3" >{(getFormItemOfFormulaire<FormItemText>(formulaire, "ENTETE")).titre}</span>
     </li>
   );
-}
+};
 
-function ListFormulaires() {
+const ListFormulaires = () => {
   const { state } = useAppContext();
   return (
     <ul className="list-group">
-      {state.lignesAffichees && state.lignesAffichees.length > 0 && state.lignesAffichees.toSorted(triListeRecentVersAncien).reverse().map((formulaire) => (
-        <Item key={formulaire.formId} formulaire={formulaire} />
-      ))}
+      {state.lignesAffichees && state.lignesAffichees.length > 0 ? state.lignesAffichees.toSorted(triListeRecentVersAncien).reverse().map((formulaire) => (
+        <Item formulaire={formulaire} key={formulaire.formId} />
+      )) : null}
     </ul>
   );
-}
+};
 
 export default ListFormulaires;

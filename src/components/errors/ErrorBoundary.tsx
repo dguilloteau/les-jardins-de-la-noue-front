@@ -1,4 +1,4 @@
-import { Component, ErrorInfo, ReactNode } from 'react';
+import { Component, ErrorInfo, ReactNode } from "react";
 
 interface Props {
     children?: ReactNode;
@@ -13,7 +13,7 @@ function logErrorToService(error: Error, errorInfo: ErrorInfo) {
     // Send the error to a logging service (e.g., Sentry, Loggly)
     // Include additional information like errorInfo for better debugging
     // loggingService.logError(error, errorInfo);
-    console.error('Logged error:', error, errorInfo);
+    console.error("Logged error:", error, errorInfo);
 }
 
 class ErrorBoundary extends Component<Props, StateError> {
@@ -32,16 +32,17 @@ class ErrorBoundary extends Component<Props, StateError> {
 
     render() {
         const { hasError, error } = this.state;
+        const { children } = this.props;
         if (hasError) {
             return (
                 <div>
                     <p>Une erreur est arrivée 😭</p>
-                    {error?.message && <span>{error.name} = {error.message}</span>}
+                    {error?.message ? <span>{error.name} = {error.message}</span> : null}
                 </div>
             );
         }
 
-        return this.props.children;
+        return children;
     }
 }
 

@@ -6,7 +6,7 @@ import { ItemProps } from "../../../models/FunctionsProps";
 import { getFormItemOfTypeFormulaire } from "../../../utils/Utils";
 
 
-function ISelectionType({ name }: Readonly<ItemProps>) {
+const ISelectionType = ({ name }: Readonly<ItemProps>) => {
   const { state, dispatch } = useAppContext();
   const formItem = getFormItemOfTypeFormulaire<FormItemList>(state.selectedTypeFormulaire, name);
 
@@ -23,14 +23,14 @@ function ISelectionType({ name }: Readonly<ItemProps>) {
         <select
           className="form-select"
           id="typeChoix"
-          value={formItem.type}
-          onChange={handleOnSelect}>
-          <option value={"RADIO"} key={"RADIO"}>RADIO</option>
-          <option value={"CHECKBOX"} key={"CHECKBOX"}>CHECKBOX</option>
+          onChange={handleOnSelect}
+          value={formItem.type}>
+          <option key="RADIO" value="RADIO">RADIO</option>
+          <option key="CHECKBOX" value="CHECKBOX">CHECKBOX</option>
         </select>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default ISelectionType;

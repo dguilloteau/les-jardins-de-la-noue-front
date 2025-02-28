@@ -4,7 +4,7 @@ import { addFormulaireToList } from "../../context/dispatcher";
 import { useAppContext } from "../../context/useAppContext";
 import { getTypeFormulaire } from "../../services/TypesFormulairesService";
 
-function AjouterFormulaire() {
+const AjouterFormulaire = () => {
   const { state, dispatch } = useAppContext();
 
   const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
@@ -17,11 +17,11 @@ function AjouterFormulaire() {
         created: false,
         done: false
       }));
-  }
+  };
 
   return (
-    <button type="button" className="btn btn-info my-2" onClick={handleOnClick}>Ajouter</button>
-  )
-}
+    <button className="btn btn-info my-2" onClick={handleOnClick} type="button">Ajouter</button>
+  );
+};
 
 export default AjouterFormulaire;

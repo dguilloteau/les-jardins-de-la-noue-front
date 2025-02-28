@@ -3,12 +3,12 @@ import { ItemProps } from "../../../models/FunctionsProps";
 import ITitre from "../items/ITitre";
 
 
-function FQuestion({ name }: Readonly<ItemProps>) {
+const FQuestion = ({ name }: Readonly<ItemProps>) => {
   return (
     <div>
       <ITitre<FormItemQuestion> name={name} />
     </div>
-  )
-}
+  );
+};
 
 export default FQuestion;

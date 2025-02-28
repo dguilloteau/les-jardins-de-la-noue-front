@@ -11,27 +11,27 @@ export enum ActionTypes {
 }
 
 // Define interface for each action type to enforce type safety
-export interface UpdateSelectedTypeFormulaireAction {
+interface UpdateSelectedTypeFormulaireAction {
     type: ActionTypes.UPDATE_SELECTED_TYPE_FORMULAIRE;
     payload: TypeFormulaire;
 };
 
-export interface UpdateFormItemOfSelectedTypeFormulaireAction {
+interface UpdateFormItemOfSelectedTypeFormulaireAction {
     type: ActionTypes.UPDATE_FORM_ITEM_OF_SELECTED_TYPE_FORMULAIRE;
     payload: FormItem;
 };
 
-export interface AddFormulaireToListAction {
+interface AddFormulaireToListAction {
     type: ActionTypes.ADD_FORMULAIRE_TO_LIST;
     payload: Formulaire;
 };
 
-export interface UpdateListSelectOptionAction {
+interface UpdateListSelectOptionAction {
     type: ActionTypes.UPDATE_LIST_SELECT_OPTION;
     payload: string;
 };
 
-export interface CreerFormulaireAction {
+interface CreerFormulaireAction {
     type: ActionTypes.CREER_FORMULAIRE;
     payload: { oldFormId: string; formulaire: Formulaire; };
 };

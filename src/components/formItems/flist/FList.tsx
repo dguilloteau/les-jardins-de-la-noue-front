@@ -5,14 +5,14 @@ import ISelectionType from "../items/ISelectionType";
 import ITitre from "../items/ITitre";
 
 
-function FList({ name }: Readonly<ItemProps>) {
+const FList = ({ name }: Readonly<ItemProps>) => {
   return (
     <div>
       <ITitre<FormItemList> name={name} />
       <ISelectionType name={name} />
       <ILibelleChoix name={name} />
     </div>
-  )
-}
+  );
+};
 
 export default FList;

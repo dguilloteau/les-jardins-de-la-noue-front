@@ -4,16 +4,16 @@ import { ItemProps } from "../../../models/FunctionsProps";
 import { getFormItemOfTypeFormulaire } from "../../../utils/Utils";
 
 
-function IImageUri({ name }: Readonly<ItemProps>) {
+const IImageUri = ({ name }: Readonly<ItemProps>) => {
   const { state } = useAppContext();
   const formItem = getFormItemOfTypeFormulaire<FormItemImage>(state.selectedTypeFormulaire, name);
 
   return (
     <div>
       {/* // TODO faire modification de l'image */}
-      <img className="form-control my-2" src={formItem.imageUri} alt="new" />
+      <img alt="new" className="form-control my-2" src={formItem.imageUri} />
     </div>
-  )
-}
+  );
+};
 
 export default IImageUri;

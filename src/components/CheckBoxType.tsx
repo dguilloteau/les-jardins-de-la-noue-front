@@ -3,7 +3,7 @@ import { triAscById } from "../utils/Utils";
 import IChecked from "./formItems/items/IChecked";
 
 
-function CheckBoxTypes() {
+const CheckBoxTypes = () => {
   const { state } = useAppContext();
   return (
     <form className="checkbox my-2">
@@ -12,6 +12,6 @@ function CheckBoxTypes() {
       )}
     </form>
   );
-}
+};
 
 export default CheckBoxTypes;

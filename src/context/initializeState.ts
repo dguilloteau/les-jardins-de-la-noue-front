@@ -16,4 +16,4 @@ export const initializeState: FormState = {
   all: fomulaires,
   options,
   selectedOption,
-}
+};

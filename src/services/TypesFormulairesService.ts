@@ -1,14 +1,14 @@
 import axios from "axios";
-import { FormItem, TypeFormulaire } from '../models/DtoStructures';
-import { afficheAlerte } from '../utils/Utils';
+import { FormItem, TypeFormulaire } from "../models/DtoStructures";
+import { afficheAlerte } from "../utils/Utils";
 import { DEFAULT_TIMEOUT, setupInterceptorsTo } from "./axioInterceptor";
 
 
 const axiosInstance = setupInterceptorsTo(axios.create({
     baseURL: "http://localhost:9000/formulaire/types",
     headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json;charset=UTF-8'
+        "Accept": "application/json",
+        "Content-Type": "application/json;charset=UTF-8"
     },
     timeout: DEFAULT_TIMEOUT,
     // data: null,
@@ -19,7 +19,7 @@ const axiosInstance = setupInterceptorsTo(axios.create({
  * @returns TypesFormulaires
  */
 export async function getAllTypesFormulaires(): Promise<TypeFormulaire[]> {
-    return await axiosInstance.get('/all')
+    return await axiosInstance.get("/all")
         .then((res) => {
             return res.data;
         })
@@ -35,7 +35,7 @@ export async function getAllTypesFormulaires(): Promise<TypeFormulaire[]> {
  * @returns TypeFormulaire
  */
 export async function getTypeFormulaire(idType: number): Promise<TypeFormulaire> {
-    return await axiosInstance.get('/' + idType)
+    return await axiosInstance.get("/" + idType)
         .then((res) => {
             return res.data;
         })
@@ -48,10 +48,10 @@ export async function getTypeFormulaire(idType: number): Promise<TypeFormulaire>
 /**
  * Check l'item du type de formulaire à modifier
  * @param {*} formItem de l'item du type de formulaire à modifier
- * @returns 
+ * @returns
  */
 export async function patchTypeFormulaire(formItem: FormItem): Promise<string> {
-    return await axiosInstance.patch('/patch', formItem)
+    return await axiosInstance.patch("/patch", formItem)
         .then((res) => {
             return res.data;
         })

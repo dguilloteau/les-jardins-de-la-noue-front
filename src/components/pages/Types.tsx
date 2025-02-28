@@ -11,7 +11,7 @@ import FQuestion from "../formItems/fquestion/FQuestion";
 import FText from "../formItems/ftext/FText";
 
 
-function ViewType({ name }: Readonly<ItemProps>) {
+const ViewType = ({ name }: Readonly<ItemProps>) => {
   switch (name) {
     case "ENTETE":
     case "COMPOSITION":
@@ -27,11 +27,11 @@ function ViewType({ name }: Readonly<ItemProps>) {
     case "FORMULE":
       return (<FList name={name} />);
     default:
-      return 'foo';
+      return "foo";
   }
-}
+};
 
-function Types() {
+const Types = () => {
   const { state } = useAppContext();
   const location = useLocation();
   const name = location.state;
@@ -43,7 +43,7 @@ function Types() {
       <ViewType name={formItem.name} />
       <QuitToRootPath />
     </Container>
-  )
-}
+  );
+};
 
 export default Types;

@@ -6,7 +6,7 @@ import { ItemProps } from "../../../models/FunctionsProps";
 import { getFormItemOfTypeFormulaire, triAscById } from "../../../utils/Utils";
 
 
-function ILibelleChoix({ name }: Readonly<ItemProps>) {
+const ILibelleChoix = ({ name }: Readonly<ItemProps>) => {
   const { state, dispatch } = useAppContext();
   const formItem = getFormItemOfTypeFormulaire<FormItemList>(state.selectedTypeFormulaire, name);
 
@@ -18,7 +18,7 @@ function ILibelleChoix({ name }: Readonly<ItemProps>) {
     formItem.listeChoix = formItem.listeChoix.map((choix) => {
       return choix.id === id
         ? { ...choix, libelleChoix }
-        : choix
+        : choix;
     });
     updateFormItemOfSelectedTypeFormulaire(dispatch, formItem);
   };
@@ -30,14 +30,14 @@ function ILibelleChoix({ name }: Readonly<ItemProps>) {
           <input
             className="form-control"
             id={choix.id.toString()}
+            onChange={handleOnChangeLibelle}
             type="text"
             value={choix.libelleChoix}
-            onChange={handleOnChangeLibelle}
           />
         </form>
       ))}
     </div>
-  )
-}
+  );
+};
 
 export default ILibelleChoix;

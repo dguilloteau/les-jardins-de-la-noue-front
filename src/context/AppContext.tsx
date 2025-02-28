@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useReducer } from "react";
+import React, { createContext, ReactNode, useReducer } from "react";
 import { FormActions } from "../actions";
 import FormState from "../models/DtoStructures";
 import { reducer } from "../reducer";
@@ -20,13 +20,13 @@ type ContextProviderProps = {
 };
 
 // Define the provider component
-function AppContextProvider({ children }: Readonly<ContextProviderProps>) {
+const AppContextProvider = ({ children }: Readonly<ContextProviderProps>) => {
     const [state, dispatch] = useReducer(reducer, initializeState);
     return (
         <AppContext.Provider value={{ state, dispatch }}>
             {children}
         </AppContext.Provider>
     );
-}
+};
 
 export default AppContextProvider;

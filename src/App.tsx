@@ -3,18 +3,17 @@ import ErrorBoundary from "./components/errors/ErrorBoundary";
 import Gestion from "./components/pages/Gestion";
 import Types from "./components/pages/Types";
 
-function App() {
+const App = () => {
   return (
     <ErrorBoundary>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Gestion />} />
-          <Route path='/types' element={<Types />} >
-          </Route>
+          <Route element={<Gestion />} path='/' />
+          <Route element={<Types />} path='/types' />
         </Routes>
       </BrowserRouter>
     </ErrorBoundary >
   );
-}
+};
 
-export default App
+export default App;

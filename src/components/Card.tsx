@@ -9,7 +9,7 @@ const Card = ({ children }: Props) => {
         <div className="container card" id="list1" style={{ borderRadius: ".15rem" }}>
             {children}
         </div>
-    )
-}
+    );
+};
 
 export default Card;

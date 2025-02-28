@@ -6,7 +6,7 @@ import { FormItem } from "../../../models/DtoStructures";
 import { ItemProps } from "../../../models/FunctionsProps";
 import { getFormItemOfTypeFormulaire } from "../../../utils/Utils";
 
-function IChecked({ name }: Readonly<ItemProps>) {
+const IChecked = ({ name }: Readonly<ItemProps>) => {
   const { state, dispatch } = useAppContext();
   const formItem = getFormItemOfTypeFormulaire<FormItem>(state.selectedTypeFormulaire, name);
 
@@ -19,10 +19,10 @@ function IChecked({ name }: Readonly<ItemProps>) {
 
   return (
     <div className="checkbox">
-      <input className={isDone} type="checkbox" checked={formItem.checked} onChange={toggleCheck} />
-      <Link className="label" to="types" state={formItem.name} >{formItem.libelle}</Link>
+      <input checked={formItem.checked} className={isDone} onChange={toggleCheck} type="checkbox" />
+      <Link className="label" state={formItem.name} to="types" >{formItem.libelle}</Link>
     </div>
   );
-}
+};
 
 export default IChecked;

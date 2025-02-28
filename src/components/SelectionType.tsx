@@ -4,9 +4,9 @@ import { useAppContext } from "../context/useAppContext";
 import { getTypeFormulaire } from "../services/TypesFormulairesService";
 
 
-function SelectionType() {
+const SelectionType = () => {
   const { state, dispatch } = useAppContext();
-  
+
   const handleOnSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
     getTypeFormulaire(parseInt(e.target.value))
@@ -19,12 +19,12 @@ function SelectionType() {
       <select
         className="form-select"
         id="typesFormulaires"
-        value={state.selectedTypeFormulaire.id}
-        onChange={handleOnSelect}>
-        {state.typesFormulaires.map(typeFormulaire => <option value={typeFormulaire.id} key={typeFormulaire.id}>{typeFormulaire.type}</option>)}
+        onChange={handleOnSelect}
+        value={state.selectedTypeFormulaire.id}>
+        {state.typesFormulaires.map(typeFormulaire => <option key={typeFormulaire.id} value={typeFormulaire.id}>{typeFormulaire.type}</option>)}
       </select>
     </div>
   );
-}
+};
 
 export default SelectionType;

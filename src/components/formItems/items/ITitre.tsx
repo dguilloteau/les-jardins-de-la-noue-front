@@ -7,7 +7,7 @@ type Props = {
   name: string;
 }
 
-function ITitre<T extends { titre?: string }>({ name }: Readonly<Props>) {
+const ITitre = <T extends { titre?: string }>({ name }: Readonly<Props>) => {
   const { state, dispatch } = useAppContext();
   const formItem = getFormItemOfTypeFormulaire<T>(state.selectedTypeFormulaire, name);
 
@@ -19,21 +19,20 @@ function ITitre<T extends { titre?: string }>({ name }: Readonly<Props>) {
 
   return (
     <div>
-      {formItem.titre != null &&
-        <form className="titre my-2">
+      {formItem.titre != null ? <form className="titre my-2">
           <label htmlFor="saisieTitreItem">Titre :</label>
           <input
+            autoFocus={true}
             className="form-control"
             id="saisieTitreItem"
+            onChange={handleOnChangeTitre}
             type="text"
             value={formItem.titre}
-            onChange={handleOnChangeTitre}
-            autoFocus={true}
           />
-        </form>
+        </form> : null
       }
     </div>
-  )
-}
+  );
+};
 
 export default ITitre;

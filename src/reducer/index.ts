@@ -5,7 +5,7 @@ function lignesFilter(selectedOption: string, lignes: Formulaire[]) {
   if (selectedOption !== "Tous") {
     return lignes.filter((item) => item.done === false);
   } else {
-    return lignes
+    return lignes;
   }
 }
 
@@ -38,7 +38,6 @@ function updateFormItemOfSelectedTypeFormulaire(state: FormState, formItem: Form
 }
 
 function updateSelectedTypeFormulaire(state: FormState, selectedTypeFormulaire: TypeFormulaire) {
-  console.log(selectedTypeFormulaire)
   return {
     ...state,
     selectedTypeFormulaire,
@@ -105,7 +104,7 @@ export function reducer(state: FormState, action: FormActions) {
     //   }
     default:
       {
-        throw Error('Unknown action: ' + action);
+        throw Error("Unknown action: " + action);
       }
   }
 }
