@@ -1,4 +1,4 @@
-# Les- ardins de la noue
+# Les jardins de la noue
 
 Application front pour les-jardins-de-la-noue
 
