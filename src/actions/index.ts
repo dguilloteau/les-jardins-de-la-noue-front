@@ -3,10 +3,15 @@ import { FormItem, Formulaire, TypeFormulaire } from "../models/DtoStructures";
 
 // Define action types as an enum to ensure consistency and prevent typos
 export enum ActionTypes {
+    // eslint-disable-next-line no-unused-vars
     UPDATE_SELECTED_TYPE_FORMULAIRE = "updateSelectedTypeFormulaire",
+    // eslint-disable-next-line no-unused-vars
     UPDATE_FORM_ITEM_OF_SELECTED_TYPE_FORMULAIRE = "updateFormItemOfSelectedTypeFormulaire",
+    // eslint-disable-next-line no-unused-vars
     ADD_FORMULAIRE_TO_LIST = "addFormulaireToList",
+    // eslint-disable-next-line no-unused-vars
     UPDATE_LIST_SELECT_OPTION = "updateListSelectOption",
+    // eslint-disable-next-line no-unused-vars
     CREER_FORMULAIRE = "creerFormulaire"
 }
 

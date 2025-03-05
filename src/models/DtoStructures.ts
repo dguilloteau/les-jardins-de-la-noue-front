@@ -46,6 +46,7 @@ export interface Formulaire {
     dateDerniereModif: string;
     created: boolean;
     done: boolean;
+    responderUri?: string;
 }
 
 export interface FormState {

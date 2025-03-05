@@ -63,6 +63,7 @@ export default [
       "react/react-in-jsx-scope": "off",
       "react/jsx-one-expression-per-line": "off",
       "react/prop-types": "off",
+      "@typescript-eslint/no-explicit-any": "error",
       "no-unused-vars": ["warn", {
         "vars": "all",
         "args": "after-used",
