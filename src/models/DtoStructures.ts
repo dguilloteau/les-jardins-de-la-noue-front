@@ -32,11 +32,19 @@ export interface FormItemText extends FormItem {
     texte: string;
 }
 
+export interface Client {
+    id: number;
+    nom: string;
+    prenom: string;
+    email: string;
+}
+
 export interface TypeFormulaire {
     id: number;
     defaut: boolean;
     type: string;
     formItems: FormItem[];
+    clients: Client[];
 }
 
 export interface Formulaire {
@@ -56,6 +64,7 @@ export interface FormState {
     all: Formulaire[];
     options: string[];
     selectedOption: string;
+    selectedClient: Client | undefined;
 }
 
 export default FormState;

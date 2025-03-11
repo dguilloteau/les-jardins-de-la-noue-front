@@ -71,6 +71,10 @@ button {
 label {
   white-space: nowrap;
   left: var(--label-left-start);
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
 }
 
 select,

@@ -46,19 +46,17 @@ export async function getTypeFormulaire(idType: number): Promise<TypeFormulaire>
 }
 
 /**
- * Check l'item du type de formulaire à modifier
+ * Met à jour le formItem du type de formulaire à modifier
  * @param {*} formItem de l'item du type de formulaire à modifier
  * @returns
  */
-export async function patchTypeFormulaire(formItem: FormItem): Promise<string> {
-    return await axiosInstance.patch("/patch", formItem)
+export async function patchFormItemTypeFormulaire(formItem: FormItem): Promise<string> {
+    return await axiosInstance.patch("/formItem", formItem)
         .then((res) => {
             return res.data;
         })
         .catch((error) => {
-            afficheAlerte("patchTypeFormulaire " + formItem.name + " error = ", error);
+            afficheAlerte("patchFormItemTypeFormulaire " + formItem.name + " error = ", error);
             return null;
         });
 }
-
-

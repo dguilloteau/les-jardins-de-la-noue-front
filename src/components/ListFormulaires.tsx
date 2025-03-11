@@ -11,10 +11,10 @@ type Props = {
 
 const Item = ({ formulaire }: Readonly<Props>) => {
   return (
-    <li className="list-group-item">
-      {formulaire.created ? <Link className="btn btn-info my-2" state={formulaire.formId} to="mailViewer" type="button">Visualiser</Link> : null}
+    <li className="list-group-item" style={{ display: "flex", gap: "10px" }}>
+      {formulaire.created ? <Link className="btn btn-info" state={formulaire.formId} to="mailViewer" type="button">Visualiser</Link> : null}
       {!formulaire.done ? <CreerModifierButton formulaire={formulaire} /> : null}
-      <span className="mx-3" >{(getFormItemOfFormulaire<FormItemText>(formulaire, "ENTETE")).titre}</span>
+      <label className="label" style={{ left: "10px" }} >{(getFormItemOfFormulaire<FormItemText>(formulaire, "ENTETE")).titre}</label>
     </li>
   );
 };

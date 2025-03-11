@@ -1,5 +1,5 @@
 import { ActionTypes, FormActions } from "../actions";
-import { FormItem, FormState, Formulaire, TypeFormulaire } from "../models/DtoStructures";
+import { Client, FormItem, FormState, Formulaire, TypeFormulaire } from "../models/DtoStructures";
 
 function lignesFilter(selectedOption: string, lignes: Formulaire[]) {
   if (selectedOption !== "Tous") {
@@ -32,7 +32,8 @@ function updateFormItemOfSelectedTypeFormulaire(state: FormState, formItem: Form
       id: state.selectedTypeFormulaire.id,
       defaut: state.selectedTypeFormulaire.defaut,
       type: state.selectedTypeFormulaire.type,
-      formItems
+      formItems,
+      clients: state.selectedTypeFormulaire.clients
     }
   };
 }
@@ -74,6 +75,63 @@ function creerFormulaire(state: FormState, payload: { oldFormId: string; formula
   };
 }
 
+function addClientToSelectedTypeFormulaire(state: FormState, clientToAdd: Client) {
+  const clients = [...state.selectedTypeFormulaire.clients, clientToAdd];
+
+  return {
+    ...state,
+    selectedTypeFormulaire: {
+      id: state.selectedTypeFormulaire.id,
+      defaut: state.selectedTypeFormulaire.defaut,
+      type: state.selectedTypeFormulaire.type,
+      formItems: state.selectedTypeFormulaire.formItems,
+      clients
+    }
+  };
+}
+
+function updateClientToSelectedTypeFormulaire(state: FormState, clientToUpdate: Client) {
+  const clients = state.selectedTypeFormulaire.clients.map((client) =>
+    client.id === clientToUpdate.id
+      ? clientToUpdate
+      : client
+  );
+
+  return {
+    ...state,
+    selectedTypeFormulaire: {
+      id: state.selectedTypeFormulaire.id,
+      defaut: state.selectedTypeFormulaire.defaut,
+      type: state.selectedTypeFormulaire.type,
+      formItems: state.selectedTypeFormulaire.formItems,
+      clients
+    }
+  };
+}
+
+function deleteClientToSelectedTypeFormulaire(state: FormState, idClient: number) {
+  const clients = state.selectedTypeFormulaire.clients.filter((client) =>
+    client.id !== idClient
+  );
+  return {
+    ...state,
+    selectedTypeFormulaire: {
+      id: state.selectedTypeFormulaire.id,
+      defaut: state.selectedTypeFormulaire.defaut,
+      type: state.selectedTypeFormulaire.type,
+      formItems: state.selectedTypeFormulaire.formItems,
+      clients
+    }
+  };
+}
+
+function updateSelectedClient(state: FormState, selectedClient: Client | undefined) {
+  return {
+    ...state,
+    selectedClient
+  };
+}
+
 export function reducer(state: FormState, action: FormActions) {
   switch (action.type) {
     case ActionTypes.UPDATE_SELECTED_TYPE_FORMULAIRE:
@@ -95,6 +153,22 @@ export function reducer(state: FormState, action: FormActions) {
     case ActionTypes.CREER_FORMULAIRE:
       {
         return creerFormulaire(state, action.payload);
+      }
+    case ActionTypes.ADD_CLIENT_TO_SELECTED_TYPE_FORMULAIRE:
+      {
+        return addClientToSelectedTypeFormulaire(state, action.payload);
+      }
+    case ActionTypes.UPDATE_CLIENT_TO_SELECTED_TYPE_FORMULAIRE:
+      {
+        return updateClientToSelectedTypeFormulaire(state, action.payload);
+      }
+    case ActionTypes.DELETE_CLIENT_TO_SELECTED_TYPE_FORMULAIRE:
+      {
+        return deleteClientToSelectedTypeFormulaire(state, action.payload);
+      }
+    case ActionTypes.UPDATE_SELECTED_CLIENT:
+      {
+        return updateSelectedClient(state, action.payload);
       }
     // case "submitModifierFormulaire":
     //   {

@@ -3,6 +3,7 @@ import ErrorBoundary from "./components/errors/ErrorBoundary";
 import Gestion from "./components/pages/Gestion";
 import Types from "./components/pages/Types";
 import MailViewer from "./components/pages/MailViewer";
+import ClientsConfig from "./components/pages/ClientsConfig";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
           <Route element={<Gestion />} path='/' />
           <Route element={<Types />} path='/types' />
           <Route element={<MailViewer />} path='/mailViewer' />
+          <Route element={<ClientsConfig />} path='/clientsConfig' />
         </Routes>
       </BrowserRouter>
     </ErrorBoundary >
